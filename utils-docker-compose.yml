@@ -10,7 +10,7 @@ services:
     image: portainer/portainer-ce:latest
     restart: unless-stopped
     volumes:
-      - portainer_data:/data
+      - /docker/apps/portainer_data:/data
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - '9000:9000'
@@ -22,7 +22,7 @@ services:
       - PUID=1000
       - PGID=1000
     volumes:
-      - /home/akitaonrails/organizr:/config
+      - /docker/apps/organizr:/config
     ports:
       - '80:80'
     cap_add:
@@ -41,7 +41,7 @@ services:
     image: zerotier/zerotier:latest
     restart: unless-stopped
     volumes:
-      - /home/akitaonrails/zerotier:/var/lib/zerotier-one
+      - /docker/apps/zerotier:/var/lib/zerotier-one
     devices:
       - /dev/net/tun:/dev/net/tun
     cap_add:
@@ -54,10 +54,10 @@ services:
     image: lscr.io/linuxserver/librespeed:latest
     restart: unless-stopped
     environment:
-      - TZ=America/Sao_Paulo
+      - TZ=Europe/Lisbon
       - PUID=1000
       - PGID=1000
     volumes:
-      - /home/akitaonrails/librespeed:/config
+      - /docker/apps/librespeed:/config
     ports:
       - '9091:80'
