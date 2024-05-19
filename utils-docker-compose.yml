@@ -1,4 +1,4 @@
-version: '3.9'
+version: '3'
 
 name: 'utils'
 
@@ -61,3 +61,15 @@ services:
       - /docker/apps/librespeed:/config
     ports:
       - '9091:80'
+
+  homarr:
+    container_name: homarr
+    image: ghcr.io/ajnart/homarr:latest
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock # Optional, only if you want docker integration
+      - /docker/apps/homarr/configs:/app/data/configs
+      - /docker/apps/homarr/icons:/app/public/icons
+      - /docker/apps/homarr/data:/data
+    ports:
+      - '7575:7575'
