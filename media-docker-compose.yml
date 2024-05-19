@@ -141,6 +141,7 @@ services:
       - /docker/apps/plex/data:/data
       - /docker/apps/plex/transcode:/transcode
       - /data/Videos:/media
+      - /data/Videos/USB:/USB
     devices:
       - /dev/dri:/dev/dri
       - /dev/bus/usb:/dev/bus/usb
