@@ -1,5 +1,3 @@
-version: '3'
-
 name: 'utils'
 
 volumes:
@@ -73,3 +71,19 @@ services:
       - /docker/apps/homarr/data:/data
     ports:
       - '7575:7575'
+
+  filezilla:
+    image: lscr.io/linuxserver/filezilla:latest
+    container_name: filezilla
+    security_opt:
+      - seccomp:unconfined #optional
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /docker/apps/filezilla:/config
+    ports:
+      - 3000:3000
+      - 3001:3001
+    restart: unless-stopped

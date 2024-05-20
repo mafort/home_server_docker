@@ -1,5 +1,3 @@
-version: '3'
-
 name: 'net'
 
 services:
@@ -21,7 +19,7 @@ services:
       - cloudflared
     environment:
       - DNSMASQ_USER=pihole
-      - WEBPASSWORD=D3zaEDr9$Bg6v%AM9csu
+      - WEBPASSWORD=${PIHOLEPASSWD}
       - TZ=Europe/Lisbon
       - PIHOLE_DNS_=127.0.0.1#5054
       - WEB_PORT=8053
