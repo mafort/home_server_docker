@@ -80,11 +80,26 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Etc/UTC
+      - TZ=Europe/Lisbon
     volumes:
       - /docker/apps/filezilla:/config
       - /data/Videos/USB:/USB
     ports:
       - 3000:3000
       - 3001:3001
+    restart: unless-stopped
+
+  filebrowser:
+    image: filebrowser/filebrowser:s6
+    container_name: filebrowser
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Lisbon
+    volumes:
+      - /data:/srv
+      - /docker/apps/filebrowser:/database/filebrowser.db
+      - /docker/apps/filebrowser:/config/settings.json
+    ports:
+      - 8888:80
     restart: unless-stopped
