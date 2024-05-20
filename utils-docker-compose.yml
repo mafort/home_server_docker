@@ -90,7 +90,7 @@ services:
     restart: unless-stopped
 
   filebrowser:
-    image: filebrowser/filebrowser:s6
+    image: filebrowser/filebrowser
     container_name: filebrowser
     environment:
       - PUID=1000
