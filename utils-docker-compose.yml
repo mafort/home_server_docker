@@ -83,6 +83,7 @@ services:
       - TZ=Etc/UTC
     volumes:
       - /docker/apps/filezilla:/config
+      - /data/Videos/USB:/USB
     ports:
       - 3000:3000
       - 3001:3001
