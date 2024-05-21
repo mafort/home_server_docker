@@ -144,3 +144,11 @@ services:
       - /dev/dri:/dev/dri
       - /dev/bus/usb:/dev/bus/usb
     network_mode: host
+
+  filebot:
+    image: jlesage/filebot
+    ports:
+      - '5800:5800'
+    volumes:
+      - /docker/apps/filebot:/config:rw
+      - /data/Videos/USB:/storage:rw
