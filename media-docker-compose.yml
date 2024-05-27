@@ -152,3 +152,17 @@ services:
     volumes:
       - /docker/apps/filebot:/config:rw
       - /data/Videos/USB:/storage:rw
+
+  rdtclient:
+    container_name: rdtclient
+    volumes:
+      - /data/Downloads/real:/data/downloads'
+      - /docker/apps/rdt-client/:/data/db'
+    image: rogerfar/rdtclient
+    restart: always
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+    ports:
+            - '6500:6500'
