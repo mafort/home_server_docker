@@ -78,20 +78,6 @@ services:
     ports:
       - '8191:8191'
 
-  sabnzbd:
-    image: lscr.io/linuxserver/sabnzbd:latest
-    restart: unless-stopped
-    environment:
-      - TZ=Europe/Lisbon
-      - PUID=1000
-      - PGID=1000
-    volumes:
-      - /data/Downloads/nzbget:/downloads
-      - /data/Downloads/nzbget/incomplete:/incomplete-downloads
-      - /docker/apps/nzbget/config:/config
-    ports:
-      - '6789:6789'
-
   radarr:
     image: ghcr.io/linuxserver/radarr:latest
     restart: unless-stopped
