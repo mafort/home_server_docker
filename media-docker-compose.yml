@@ -137,7 +137,7 @@ services:
       - '5800:5800'
     volumes:
       - /docker/apps/filebot:/config:rw
-      - /data/Videos/USB:/storage:rw
+      - /media/USB:/storage:rw
 
   rdtclient:
     container_name: rdtclient
